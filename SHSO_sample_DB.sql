@@ -113,8 +113,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `cards`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `cards` (
   `ID` varchar(50) DEFAULT NULL,
   `HeroName` varchar(50) DEFAULT NULL,
@@ -149,10 +148,9 @@ CREATE TABLE `cards` (
   `ArtistName` varchar(50) DEFAULT NULL,
   `Status` varchar(50) DEFAULT NULL,
   `RulesHeroName` varchar(50) DEFAULT NULL,
-  `Rules` varchar(2000) DEFAULT NULL,
+  `Rules` varchar(4000) DEFAULT NULL,
   `Affinity` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cards`
@@ -169,12 +167,10 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `catalog`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `catalog` (
   `catalog_ownable_id` int NOT NULL AUTO_INCREMENT,
   `category` varchar(50) DEFAULT NULL,
-  `desc` varchar(50) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
   `display_priority` int DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `ownable_type_id` int DEFAULT NULL,
@@ -189,7 +185,6 @@ CREATE TABLE `catalog` (
   `price_multiplier` float NOT NULL DEFAULT '1',
   PRIMARY KEY (`catalog_ownable_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17545 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `catalog`
@@ -442,7 +437,6 @@ CREATE TABLE `tokens` (
 --
 -- Table structure for table `user`
 --
-
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -466,9 +460,6 @@ CREATE TABLE `user` (
   `Fractals` int NOT NULL DEFAULT '5000',
   `isBanned` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID` (`ID`),
-  UNIQUE KEY `Email` (`Email`),
-  UNIQUE KEY `PlayerID` (`PlayerID`),
   KEY `ID_2` (`ID`),
   KEY `Username` (`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11145 DEFAULT CHARSET=latin1;
